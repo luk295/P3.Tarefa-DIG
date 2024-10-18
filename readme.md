@@ -408,37 +408,139 @@ En www.marca.com son de 20 segundos. Na outra é de 1156 segundos.
 
 
 ### 10-Averigua cántas máquinas con distintas IPs están detrás do dominio web www.google.es, sempre son as mesmas e na mesma orde? por qué?
-`dig google.es NS`:
+`dig google.es ANY`:
 ```
 
-; <<>> DiG 9.18.28-0ubuntu0.22.04.1-Ubuntu <<>> gogle.es NS
+luk@luk-VirtualBox:~$ dig google ns any
+;; Warning, extra type option
+
+; <<>> DiG 9.18.28-0ubuntu0.22.04.1-Ubuntu <<>> google ns any
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 27698
-;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 31696
+;; flags: qr rd ra; QUERY: 1, ANSWER: 13, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 65494
 ;; QUESTION SECTION:
-;gogle.es.			IN	NS
+;google.				IN	ANY
 
 ;; ANSWER SECTION:
-gogle.es.		21600	IN	NS	george.ns.cloudflare.com.
-gogle.es.		21600	IN	NS	wanda.ns.cloudflare.com.
+google.			0	IN	NSEC3PARAM 1 0 1 379B1838B7824DD7
+google.			0	IN	RRSIG	NSEC3PARAM 8 1 0 20241107073723 20241016073723 64063 google. HOz45p4J3dskTKAhbcZFxCh4nhLq6vQmr3m7nAIiMZB35Fy3xEB9irIm g9MoO/LrlbuhS6CDE7OIHkCL8BI7YFGQm4qQme055RYL+NOA+ZdOqtoC nVWYGX6KnyEUN4WNKV6dEOIDLhHBoITYdVZ571SrKTjVRTAKn514xfgX mPk=
+google.			300	IN	DNSKEY	257 3 8 AwEAAYsyyXIFs0vL26Ot1DUGdX+G/9qD030Ei85Vj27B1mvlDgSeEp5u ckFfRjB3kj1oJDJ6iuEL/5ILXluaQkTap/SI18raPlNufS8ou/JS1vDk JBPVLMxN2Bb7fI7+Y+5hha+bu9k0GkgR1s1nkatsMDFj2eTK/TFkfM05 8aYZ7zew2so7EExMnQYdTZBHzdtcv5/5WhCt169w6dsjSLsSl4VOSoht rPuvakkQm7H7BI8SlqQo5WkDkkmgJsqURb6eTH9zmxqxeoxTgpi/RIeE kIjkHk0eLP/UfFc4yRPFUqZWmDc7UgH5gpM1mkYoHn+30cCBR6dqLWeX 0TS+jOAkcac=
+google.			300	IN	DNSKEY	256 3 8 AwEAAYAEIfmF5ubHryDtwfj8W9F0ek7vkKRECKE3o1Ky/ZrZNEjVp+zA 1N/f+yYW+PjioNcPBKGcyfm+se0ByXpF+CqLjOTJOJa9l3YnZ+j7el0F OttjsrN96hBSMX2Wgss3y9RFPe/kc/MTE/QC/4H3PNayCmyZij2pThN4 qpAaBDV5
+google.			300	IN	RRSIG	DNSKEY 8 1 300 20241107073723 20241016073723 6125 google. A82BaISOanYcbcFc+r95QQh8h8fRlZoFimSFf57gb+4A7wPMyaoRJPd9 fciJBoJQXc1yqdm39MKsgP4b4FWtJLpx8p1HJftAGy4LIw/D9rs+rASh t5Z7X9Bf8xG2TrH0Q7A1WYWHGOaY+5qRrau+JpKrfYZ/sWG+yYmmIeMz cgNE69XbtqBEPpoJ71LD7/zD36LSB4DWShgRgI8RmchDNEA85Kj0MAo8 S1KcEVvGB9Wo07axH07AnSUiPEHYvSv7byH5lJmSzF0FlC24++5FTzYb 9GX5WBkLiDRdEoH+xVZ6h//XhjN1/HxeF30LgemGBDyrJaR6PYy6jiN4 A0JgBg==
+google.			21600	IN	SOA	ns-tld1.charlestonroadregistry.com. cloud-dns-hostmaster.google.com. 1 21600 3600 259200 900
+google.			21600	IN	RRSIG	SOA 8 1 21600 20241107073723 20241016073723 64063 google. F6gLwvr+xQzCcmx/5jsJynNev6J2E4f4sdVsl2VTB1VEuJo71ycMJABe 4VPoppOEdTuuv+FoWBJbMGQFNy+64BMJwNfghThLSOfvIa+/0K3b1QC/ gZLrDlOfGJKq555wKHZOmIn4QLW647lGxt+eoiZZPa9AybMNmnRzcchK 9mI=
+google.			21600	IN	NS	ns-tld1.charlestonroadregistry.com.
+google.			21600	IN	NS	ns-tld5.charlestonroadregistry.com.
+google.			21600	IN	NS	ns-tld3.charlestonroadregistry.com.
+google.			21600	IN	NS	ns-tld4.charlestonroadregistry.com.
+google.			21600	IN	NS	ns-tld2.charlestonroadregistry.com.
+google.			21600	IN	RRSIG	NS 8 1 21600 20241107073723 20241016073723 64063 google. TJacAAzlSBVAoIVXHBczJoxfVrTFGMLkIftBijn+EkqYJ6jRG1aK4uC2 es0qhSXtiHRic8gN+kCA/DBgC4NsPlcp/zdmHyueuDduaBaEThAXdozC 9rw3IjuCb9EGBOoo+teH1oRjzxQ4oXqgUoTbRux0So8TgQlIeQs3W9UA Shs=
 
-;; Query time: 26 msec
-;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
-;; WHEN: Wed Oct 16 21:40:16 CEST 2024
-;; MSG SIZE  rcvd: 95
+;; Query time: 129 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (TCP)
+;; WHEN: Fri Oct 18 18:32:00 CEST 2024
+;; MSG SIZE  rcvd: 1476
 ```
 Non, xa que dependen da carga e do mellor camiño que ten que recorrer a resposta do servidor para obter o mellor resultado.
 
 ### 11-Pregunta o mesmo a un server raiz (J.ROOTSERVERS.NET por exemplo) e comproba na resposta se o server acepta o modo recursivo
 
+Executei o comando: `dig J.ROOTSERVERS.NET recurse`.
+```
+luk@luk-VirtualBox:~$ dig J.ROOTSERVERS.NET recurse
+
+; <<>> DiG 9.18.28-0ubuntu0.22.04.1-Ubuntu <<>> J.ROOTSERVERS.NET recurse
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 29969
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 4
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;J.ROOTSERVERS.NET.		IN	A
+
+;; ANSWER SECTION:
+J.ROOTSERVERS.NET.	3382	IN	A	3.33.243.145
+J.ROOTSERVERS.NET.	3382	IN	A	15.197.204.56
+
+;; ADDITIONAL SECTION:
+J.ROOTSERVERS.NET.	3382	IN	NS	ns2.smartname.com.
+J.ROOTSERVERS.NET.	3382	IN	NS	ns1.smartname.com.
+J.ROOTSERVERS.NET.	3382	IN	SOA	ns1.smartname.com. dns.jomax.NET. 2023061200 28800 7200 604800 86400
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 18 18:40:07 CEST 2024
+;; MSG SIZE  rcvd: 173
+
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: SERVFAIL, id: 46331
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;recurse.			IN	A
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 18 18:40:07 CEST 2024
+;; MSG SIZE  rcvd: 36
+```
+
 
 
 ### 12-Se queremos ver tóda-las queries que fai o servidor de DNS, qué opción temos que usar? averigua a IP de www.timesonline.co.uk, especifica os pasos dados
 
+
+
+
+
 ### 13-Usando a información dispoñible a traveso do DNS especifica a máquina (nome e IP) ou máquinas que actúan como servers de correo do dominio danielcastelao.org
+
+```
+luk@luk-VirtualBox:~$ dig danielcastelao.org
+
+; <<>> DiG 9.18.28-0ubuntu0.22.04.1-Ubuntu <<>> danielcastelao.org
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 4828
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 13
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;danielcastelao.org.		IN	A
+
+;; ANSWER SECTION:
+danielcastelao.org.	891	IN	A	178.211.133.37
+
+;; ADDITIONAL SECTION:
+danielcastelao.org.	891	IN	MX	130 aspmx4.googlemail.com.             ******************
+danielcastelao.org.	891	IN	MX	90 alt1.aspmx.l.google.com.
+danielcastelao.org.	891	IN	MX	140 aspmx5.googlemail.com.             ******************
+danielcastelao.org.	891	IN	MX	120 aspmx3.googlemail.com.             ******************
+danielcastelao.org.	891	IN	MX	110 aspmx2.googlemail.com.             ******************
+danielcastelao.org.	891	IN	SOA	ns1.hover.com. dnsmaster.hover.com. 1720467415 1800 900 604800 300
+danielcastelao.org.	891	IN	MX	80 aspmx.l.google.com.
+danielcastelao.org.	891	IN	NS	ns1.hover.com.
+danielcastelao.org.	891	IN	MX	100 alt2.aspmx.l.google.com.
+danielcastelao.org.	891	IN	NS	ns2.hover.com.
+danielcastelao.org.	891	IN	TXT	"v=spf1 include:_spf.google.com ~all"
+danielcastelao.org.	891	IN	TXT	"google-site-verification=YJ9h1U12oXB6DlEoHxCidyMFdM9H4FH2P1RrcAuDvxc"
+
+;; Query time: 1 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 18 19:01:58 CEST 2024
+;; MSG SIZE  rcvd: 459
+```
+
+
+
 
 ### 14-Podes obter os rexistros AAAA de www.facebook.com? a qué corresponden?
